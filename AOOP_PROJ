@@ -1,0 +1,158 @@
+package defaultpackage;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Component;
+import java.awt.Point;
+import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JCheckBoxMenuItem;
+import java.awt.TextField;
+import java.awt.Checkbox;
+import java.awt.Choice;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.ButtonGroup;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class GroupProject extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	JLabel lblNewLabel_3;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GroupProject frame = new GroupProject();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GroupProject() {
+		setTitle("CS_2CS2_TBL");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 336);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel(" NAME : ");
+		lblNewLabel.setBounds(0, 101, 56, 22);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("AGE :");
+		lblNewLabel_1.setBounds(10, 140, 49, 22);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("GENDER : ");
+		lblNewLabel_2.setBounds(130, 235, 61, 14);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		contentPane.add(lblNewLabel_2);
+		
+		TextField Tage = new TextField();
+		Tage.setBounds(62, 140, 95, 22);
+		contentPane.add(Tage);
+		
+		TextField Tname = new TextField();
+		Tname.setBounds(62, 101, 95, 22);
+		contentPane.add(Tname);
+		
+		JRadioButton Fbutton = new JRadioButton("Female");
+		Fbutton.setBounds(242, 231, 72, 23);
+		buttonGroup.add(Fbutton);
+		Fbutton.setBackground(new Color(255, 255, 255));
+		contentPane.add(Fbutton);
+		
+		JRadioButton Mbutton = new JRadioButton("Male");
+		Mbutton.setBounds(182, 231, 55, 23);
+		buttonGroup.add(Mbutton);
+		Mbutton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		contentPane.add(Mbutton);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Students Information");
+		lblNewLabel_2_1.setBounds(106, 11, 236, 22);
+		lblNewLabel_2_1.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		contentPane.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("ADDRESS :");
+		lblNewLabel_1_1.setBounds(10, 182, 61, 14);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		contentPane.add(lblNewLabel_1_1);
+		
+		TextField Taddress = new TextField();
+		Taddress.setBounds(73, 182, 270, 43);
+		contentPane.add(Taddress);
+		
+		JLabel lblId = new JLabel("ID :");
+		lblId.setBounds(10, 60, 40, 22);
+		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblId.setFont(new Font("Tahoma", Font.BOLD, 11));
+		contentPane.add(lblId);
+		
+		TextField Tid = new TextField();
+		Tid.setBounds(62, 60, 95, 22);
+		contentPane.add(Tid);
+		
+		JButton Badd = new JButton("ADD");
+		Badd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int age=Integer.parseInt(Tage.getText());
+				if(age>=18)
+					lblNewLabel_3.setText("You are a student");
+				else
+					lblNewLabel_3.setText("You are a not student here");
+			}
+		});
+		Badd.setBounds(10, 253, 89, 23);
+		Badd.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 11));
+		contentPane.add(Badd);
+		
+		JButton Bdelete = new JButton("DELETE");
+		Bdelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Tid.setText("");
+				Tname.setText("");
+				Tage.setText("");
+				Taddress.setText("");
+				lblNewLabel_3.setText("");
+			}
+		});
+		Bdelete.setBounds(335, 253, 89, 23);
+		Bdelete.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 11));
+		contentPane.add(Bdelete);
+		
+		lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setBounds(106, 254, 219, 33);
+		contentPane.add(lblNewLabel_3);
+		
+	}
+}
